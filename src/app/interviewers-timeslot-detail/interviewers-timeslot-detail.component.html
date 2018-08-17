@@ -1,0 +1,8 @@
+<div>
+    <hr/>
+    <app-interviewers-timeslot-detail-update *ngIf="isOn" [interviewers_timeslot]='interviewers_timeslot'></app-interviewers-timeslot-detail-update>
+    <p *ngIf="!isOn">{{interviewers_timeslot.start_date | date:'MMM d, y, h:mm a'}} - {{interviewers_timeslot.end_date | date:'MMM d, y, h:mm'}}</p>
+    <button class="btn btn-primary btn-sm" (click)='deleteInterviewerTimeslot()'>Delete</button>&nbsp; 
+    <button class="btn btn-secondary btn-sm" (click)="isOn=!isOn">Update</button>&nbsp;
+</div>
+

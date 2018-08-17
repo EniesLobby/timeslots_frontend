@@ -1,0 +1,9 @@
+<div *ngIf="candidate">
+    <hr/>
+    <app-candidate-update *ngIf="isOn" [candidate]='candidate'></app-candidate-update>
+    <p *ngIf="!isOn">{{candidate.first_name}} {{candidate.last_name}}, {{candidate.email}}</p>
+  <button class="btn btn-primary btn-sm" (click)='deleteCandidate()'>Delete</button>&nbsp; 
+  <button class="btn btn-secondary btn-sm" (click)="isOn=!isOn">Update</button>&nbsp;
+  <button class="btn btn-secondary btn-sm" (click)='showTimeSlots()'>Timeslots</button>&nbsp;
+ 
+</div>

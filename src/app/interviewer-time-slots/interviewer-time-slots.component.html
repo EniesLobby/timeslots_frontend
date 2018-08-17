@@ -1,0 +1,20 @@
+<h4>List of all interviewer's timeslots</h4>
+  
+<div *ngFor="let interviewers_timeslot of interviewers_timeslots | paginate: { itemsPerPage: 5, currentPage: p }">
+    <app-interviewers-timeslot-detail [interviewers_timeslot]='interviewers_timeslot'></app-interviewers-timeslot-detail> 
+</div>
+<br>
+<div>  
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<hr/>
+<h4>Create new timeslot for {{ interviewer.first_name }}</h4>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+            <input name="start_date" placeholder="Start date (YYYY-MM-dd hh:mm)" ngModel required #first="ngModel" class="form-control" type="text"><br>
+            <input name="end_date" placeholder="End date (YYYY-MM-dd hh:mm)" ngModel class="form-control" type="text"><br>
+            <button  class="btn btn-primary">Submit</button>
+        </div>
+</form>

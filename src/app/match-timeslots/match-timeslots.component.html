@@ -1,0 +1,92 @@
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<div class="row">
+    <div class="col">
+      <div class="form-group">
+          <label for="exampleFormControlSelect2">Select interviewers</label>
+          <select multiple class="form-control" formControlName="interviewers">
+            <option *ngFor="let interviewer of interviewers" value="{{ interviewer.id }}">{{ interviewer.last_name }} {{ interviewer.first_name }}</option>
+          </select>
+          
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" formControlName="smcheck">
+              <label class="form-check-label" for="defaultCheck1">
+                  Interviewers together
+              </label>
+          </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="form-group">
+          <label for="exampleFormControlSelect1">Select a candidate</label>
+          <select class="form-control" formControlName="candidate" >
+              <option *ngFor="let candidate of candidates" value="{{ candidate.id }}">{{ candidate.last_name }} {{ candidate.first_name }}</option>
+          </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <div class="row">
+      <div class="col">
+          <input class="form-control" type="text" placeholder="Start date (YYYY-MM-dd)" formControlName="start_date">
+      </div>
+      <p>-</p>
+      <div class="col">
+          <input class="form-control" type="text" placeholder="End date (YYYY-MM-dd)" formControlName="end_date">
+      </div>
+  </div>
+  </div>
+  <label for="exampleFormControlSelect1"><i>*Empty Start and End dates inputs lead to next week matches</i></label><br>
+  
+  <button type="submit" class="btn btn-primary" (click)="isOn=true">Match</button>
+  
+</form>
+
+
+<hr/>
+
+<div *ngIf="isOn && !sm">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let timeslot of timeslots; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ timeslot.interviewer.first_name }}</td>
+        <td>{{ timeslot.interviewer.last_name }}</td>
+        <td>{{ timeslot.start_date | date:'short' }}</td>
+        <td>{{ timeslot.end_date | date:'short' }}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="isOn && sm">
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Start date</th>
+          <th scope="col">End date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let timeslot of timeslots; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ timeslot.start_date | date:'short' }}</td>
+          <td>{{ timeslot.end_date | date:'short' }}</td>
+        </tr>
+  
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,10 @@
+<div class="col-md-6">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group">
+        <input formControlName="start_date" placeholder="Start date" name="start_date" class="form-control" id="start_date">
+        <input formControlName="end_date" placeholder="End date" name="end_date" class="form-control" id="end_date">
+      </div>
+      <button style="display:none">Update</button>
+    </form>
+  </div>

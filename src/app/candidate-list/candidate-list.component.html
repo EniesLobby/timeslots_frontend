@@ -1,0 +1,17 @@
+<h4>List of all candidates</h4>
+
+<div *ngFor="let candidate of candidates">
+    <app-candidate-detail [candidate]='candidate'></app-candidate-detail>
+</div>
+
+<hr/>
+    <h4>Create new Candidate</h4>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+            <input name="first_name" placeholder="Enter first name" ngModel required #first="ngModel" class="form-control" type="text"><br>
+            <input name="last_name" placeholder="Enter last name" ngModel class="form-control" type="text"><br>
+            <input name="email"  placeholder="Enter email" ngModel class="form-control" type="text"><br>
+            <button class="btn btn-primary">Create!</button>
+        </div>
+</form>

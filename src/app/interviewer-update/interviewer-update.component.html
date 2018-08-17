@@ -1,0 +1,11 @@
+<div class="col-md-6">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group">
+        <input formControlName="first_name" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+        <input formControlName="last_name" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+        <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      </div>
+      <button style="display:none">Update</button>
+    </form>
+  </div>
