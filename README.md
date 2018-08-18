@@ -1,6 +1,6 @@
 # Timeslots frontend
 ## Overview
-Front end to consume REST server  
+Front end to consume REST server for managing interviewers and candidates timeslots
 UI for Create/Read/Update/Delete Interviewers, Candidates and timeslots  
 Shows matches for a given range. If the range is not given shows for the next week
 
