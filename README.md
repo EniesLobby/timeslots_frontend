@@ -13,8 +13,8 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 [x] More usable datepicker
 
 ## Screenshots
-<img src="https://github.com/EniesLobby/timeslots_frontend/blob/master/screenshots/1.PNG" width="150" height="400" /><br />
-<img src="https://github.com/EniesLobby/timeslots_frontend/blob/master/screenshots/2.PNG" width="150" height="400" />
+<img src="https://github.com/EniesLobby/timeslots_frontend/blob/master/screenshots/1.PNG" width="250" height="400" /><br />
+<img src="https://github.com/EniesLobby/timeslots_frontend/blob/master/screenshots/2.PNG" width="250" height="400" />
 ![Third Screenshot](https://github.com/EniesLobby/timeslots_frontend/blob/master/screenshots/3.PNG)
 ![Fourth Screenshot](https://github.com/EniesLobby/timeslots_frontend/blob/master/screenshots/4.PNG)
 
