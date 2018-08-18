@@ -4,7 +4,7 @@
     <app-interviewer-update *ngIf="isOn" [interviewer]='interviewer'></app-interviewer-update>
     <p *ngIf="!isOn">{{interviewer.first_name}} {{interviewer.last_name}}, {{interviewer.email}}</p>
   <button class="btn btn-primary btn-sm" (click)='deleteInterviewer()'>Delete</button>&nbsp; 
-  <button class="btn btn-secondary btn-sm" (click)="isOn=!isOn">Update</button>&nbsp;
+  <button class="btn btn-secondary btn-sm" (click)="isOn=!isOn">Update show/hide</button>&nbsp;
   <button class="btn btn-secondary btn-sm" (click)='showTimeSlots()'>Timeslots</button>&nbsp;
  
 </div>

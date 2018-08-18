@@ -3,6 +3,7 @@ import { APIService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 
 @Component({
@@ -15,6 +16,7 @@ export class InterviewerTimeSlotsComponent implements OnInit {
   interviewer_id = 1;
   interviewer: any;
   p: number = 1;
+  errorMessage: String;
 
   private interviewers_timeslots: Array<object> = [];
 
@@ -23,16 +25,20 @@ export class InterviewerTimeSlotsComponent implements OnInit {
   ngOnInit() {
     this.getInterviewersTimeSlots();
   }
+  
 
   private getInterviewersTimeSlots() {
     this.interviewer = this.dataService.person;
-    console.log(this.interviewer);
     this.apiService.getInterviewerTimeslots(this.interviewer.id).subscribe((data:  Array<object>) => {
     this.interviewers_timeslots  =  data;
     });
   }
 
   onSubmit(f: NgForm) {
+
+    let dates_start = f.value.start_date.split(" ");
+    let dates_end = f.value.end_date.split(" "); 
+
     this.createInterviewerTimeslot(f.value);
   }
 

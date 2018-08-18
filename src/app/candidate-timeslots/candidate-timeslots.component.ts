@@ -24,24 +24,29 @@ export class CandidateTimeslotsComponent implements OnInit {
 
   private getCandidateTimeslots() {
     this.candidate = this.dataService.person;
-    console.log(this.candidate);
     this.apiService.getCandidateTimeslots(this.candidate.id).subscribe((data:  Array<object>) => {
-    this.candidates_timeslots  =  data;
+    this.candidates_timeslots  =  data; 
   });
+  }
+
+  private validateDates(dates) {
+    let date = dates.split(" ");
+    if(date[1]) {
+      console.log("ERROR");
+      return false;
+    }
+    console.log(date[0], date[1]);
   }
 
   onSubmit(f: NgForm) {
     this.createCandidateTimeslot(f.value);
+    this.validateDates(f.value);
     this.getCandidateTimeslots();
   }
 
   private createCandidateTimeslot(timeslot) {
-    console.log(this.candidate.id, timeslot);
-    this.apiService.createCandidateTimeslot(this.candidate.id, timeslot).subscribe((response) => {
-    });
+      this.apiService.createCandidateTimeslot(this.candidate.id, timeslot).subscribe((response) => { });
     this.getCandidateTimeslots();
    }
-
-
 }
 

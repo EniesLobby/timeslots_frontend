@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../api.service';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-candidate-list',
@@ -24,7 +24,7 @@ export class CandidateListComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    console.log(f.value);
+    
     this.createCandidate(f.value);
     
   }

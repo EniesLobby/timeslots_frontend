@@ -10,10 +10,18 @@
 <hr/>
 <h4>Create new timeslot for {{ candidate.first_name }}</h4>
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-        <div class="form-group">
-            <input name="start_date" placeholder="Start date (YYYY-MM-dd hh:mm)" ngModel required #first="ngModel" class="form-control" type="text"><br>
-            <input name="end_date" placeholder="End date (YYYY-MM-dd hh:mm)" ngModel class="form-control" type="text"><br>
-            <button  class="btn btn-primary">Submit</button>
-        </div>
-</form>
+<div class="createForm">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)" novalidate>
+            <div class="form-group">
+                <input name="start_date" placeholder="Start date (YYYY-MM-dd hh:mm)" ngModel required #start_date="ngModel" class="form-control" type="text" [ngClass]="{'is-invalid': f.submitted && start_date.invalid }">
+                <div *ngIf="f.submitted && start_date.invalid" class="invalid-feedback">
+                    <div *ngIf="start_date.errors.required">Start date is required</div>
+                </div>
+                <input name="end_date" placeholder="End date (YYYY-MM-dd hh:mm)" ngModel required #end_date="ngModel" class="form-control" type="text" [ngClass]="{'is-invalid': f.submitted && end_date.invalid }">
+                <div *ngIf="f.submitted && end_date.invalid" class="invalid-feedback">
+                    <div *ngIf="end_date.errors.required">End date is required</div>
+                </div>
+                <button  class="btn btn-primary">Submit</button>
+            </div>
+    </form>
+</div>

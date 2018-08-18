@@ -7,11 +7,19 @@
 <hr/>
 <h4>Create new Interviewer</h4>
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<div class="createForm">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)" novalidate>
         <div class="form-group">
-            <input name="first_name" placeholder="Enter first name" ngModel required #first="ngModel" class="form-control" type="text"><br>
-            <input name="last_name" placeholder="Enter last name" ngModel class="form-control" type="text"><br>
+            <input name="first_name" placeholder="Enter first name" ngModel required #first_name="ngModel" class="form-control" type="text"  [ngClass]="{'is-invalid': f.submitted && first_name.invalid }">
+            <div *ngIf="f.submitted && first_name.invalid" class="invalid-feedback">
+                <div *ngIf="first_name.errors.required">First Name is required</div>
+            </div>
+            <input name="last_name" placeholder="Enter last name" ngModel required #last_name="ngModel" class="form-control" type="text"  [ngClass]="{'is-invalid': f.submitted && last_name.invalid }">
+            <div *ngIf="f.submitted && last_name.invalid" class="invalid-feedback">
+                <div *ngIf="last_name.errors.required">Last Name is required</div>
+            </div>
             <input name="email"  placeholder="Enter email" ngModel class="form-control" type="text"><br>
-            <button  class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary">Create!</button>
         </div>
-</form>
+    </form>
+</div>
